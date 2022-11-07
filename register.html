@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Guvi_Geek</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  </head>
+  <body ng-app="guviApp" ng-controller="registerController">
+    <div class="row clearfix" style="margin-top: 15%;">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header">
+            REGISTER
+          </div>
+          <div class="card-body">
+            <form name="registerForm" class="row">
+              <div class="form-group col-md-6">
+                <label>Name</label>
+                <input class="form-control" type="text" ng-model="user.name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Email</label>
+                <input class="form-control" type="email" ng-model="user.email" required>
+              </div>
+              <!--<div class="form-group col-md-6">
+                <label>Date of birth</label>
+                <input id="dob" class="form-control" type="date" ng-model="user.dob" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Phone number</label>
+                <input class="form-control" type="tel" ng-model="user.phoneNumber"
+                       minlength="10" maxlength="10"
+                       required  onkeypress='validate(event)'>
+              </div>-->
+              <div class="form-group col-md-6">
+                <label>Password</label>
+                <input name="" class="form-control" minlength="8" type="password" ng-model="user.password" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Confirm password</label>
+                <input class="form-control" type="password" ng-model="confirmPassword" minlength="8" required><br/>
+                <p class="text-danger" ng-if="user.password.length>7&&user.password!==confirmPassword">Passwords do not match.</p>
+              </div>
+              <div class="form-group col-12">
+                <input ng-disabled="registerForm.$invalid||user.password!==confirmPassword" type="submit" ng-click="registerUser(user)" class="btn btn-primary btn-block" />
+              </div>
+            </form>
+            <div class="mt-5">
+              <p class="text-center">Already have an account?&nbsp;&nbsp; <a href="login.html">Login</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/register.js"></script>
+  </body>
+</html>
